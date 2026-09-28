@@ -15,13 +15,18 @@ export function drawReceipt(p) {
   // Header
   p.noStroke();
   p.fill(0);
-    p.textFont("monospace");
-    p.textAlign(p.CENTER, p.TOP);
-    p.textStyle(p.BOLD);
-    p.textSize(28);
-    p.text("NIGHT SIGNALS", w / 2, 30);
+  p.textFont("monospace");
+  p.textAlign(p.CENTER, p.TOP);
+  p.textStyle(p.BOLD);
+  p.textSize(28);
+  p.text("Djblackberry64 lol", w / 2, 30);
 
   dashedLine(p, margin, 94, w - margin, 94, 6, 5);
+
+  p.rect(5, 5, 5, 5, 1, 1, 1, 1);
+  p.circle(25, 15, 5);
+  //p.rect(22, 10, 5, 5, 1, 1, 1, 1);
+  p.rect(40, 5, 5, 5, 1, 1, 1, 1);
 
   // A seeded field of tiny stars and radio noise.
   for (let i = 0; i < 150; i += 1) {
@@ -102,7 +107,11 @@ function drawBarcode(p, value, centerX, y) {
   });
   // Draw directly on p5's canvas: p.image expects a p5 image wrapper, while
   // JsBarcode returns a regular browser canvas.
-  p.drawingContext.drawImage(barcodeCanvas, Math.floor(centerX - barcodeCanvas.width / 2), y);
+  p.drawingContext.drawImage(
+    barcodeCanvas,
+    Math.floor(centerX - barcodeCanvas.width / 2),
+    y,
+  );
 }
 
 function dashedLine(p, x1, y1, x2, y2, dash, gap) {
